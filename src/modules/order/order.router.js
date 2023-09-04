@@ -22,4 +22,12 @@ router.patch(
 router.get("/sucess", orderController.sucessPage);
 router.get("/cancel", orderController.continuShopping);
 
+//webhook
+
+router.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  orderController.orderWebhook
+);
+
 export default router;
