@@ -57,7 +57,7 @@ const bootsratp = (app, express) => {
   app.use("/coupon", couponRouter);
   app.use("/cart", cartRouter);
   app.use("/order", orderRouter);
-  app.use("review", reviewRouter);
+  app.use("/review", reviewRouter);
 
   app.all("*", (req, res) => {
     return res.json({ message: "inVaild Path" });
