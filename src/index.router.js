@@ -8,6 +8,7 @@ import productRouter from "./modules/product/product.router.js";
 import couponRouter from "./modules/coupon/coupon.router.js";
 import cartRouter from "./modules/cart/cart.router.js";
 import orderRouter from "./modules/order/order.router.js";
+import reviewRouter from "./modules/review/review.router.js";
 import { globalErrorHandler } from "./utils/errorHandling.js";
 import morgan from "morgan";
 import cors from "cors";
@@ -56,6 +57,7 @@ const bootsratp = (app, express) => {
   app.use("/coupon", couponRouter);
   app.use("/cart", cartRouter);
   app.use("/order", orderRouter);
+  app.use("review", reviewRouter);
 
   app.all("*", (req, res) => {
     return res.json({ message: "inVaild Path" });

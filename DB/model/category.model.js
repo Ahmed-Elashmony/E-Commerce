@@ -1,4 +1,5 @@
 import { Schema, Types, model } from "mongoose";
+import subCategoryModel from "./subCategory.js";
 
 const categorySchema = new Schema(
   {
@@ -18,6 +19,10 @@ categorySchema.virtual("subCategory", {
   ref: "subCategory",
   localField: "_id", // category model
   foreignField: "categoryId", // subCategory model
+});
+
+categorySchema.pre("findByIdAndDelete", async function () {
+  await subCategoryModel.deleteMany({ categoryId: this._id });
 });
 
 const categoryModel = model("Category", categorySchema);

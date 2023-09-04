@@ -58,7 +58,8 @@ export const deleteCategory = asyncHandler(async (req, res, next) => {
   await categoryModel.findByIdAndDelete(req.params.categoryId);
 
   // delete subCategory
-  await subCategoryModel.deleteMany({ categoryId: category._id });
+  // done in Schema
+  // await subCategoryModel.deleteMany({ categoryId: category._id });
 
   return res.status(300).json({ messaeg: "Done" });
 });

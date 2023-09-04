@@ -23,6 +23,7 @@ const productSchema = new Schema(
     subCategory: { type: Types.ObjectId, ref: "subCategory", required: true },
     brandId: { type: Types.ObjectId, ref: "Brand", required: true },
     cloudfolder: { type: String, unique: true },
+    reviews: [{ id: { type: Types.ObjectId, ref: "Review" } }],
   },
   { timestamps: true, strictQuery: true, toJSON: { virtuals: true } }
 );
