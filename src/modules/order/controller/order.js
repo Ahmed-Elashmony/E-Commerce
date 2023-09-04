@@ -183,7 +183,7 @@ export const orderWebhook = asyncHandler(async (request, response) => {
   const sig = request.headers["stripe-signature"];
 
   let event;
-
+  const stripe = new Stripe(process.env.ENDPOINT_SECRET);
   try {
     event = stripe.webhooks.constructEvent(
       request.body,
