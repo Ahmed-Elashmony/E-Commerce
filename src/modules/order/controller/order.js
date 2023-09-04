@@ -199,13 +199,15 @@ export const orderWebhook = asyncHandler(async (request, response) => {
   const orderId = event.data.object.metadata.order_id;
   if (event.type === "checkout.session.completed") {
     // change order status
-    await orderModel.findByIdAndUpdate(orderId, {
-      status: "visa paied",
-    });
+    await orderModel.findOneAndUpdate(
+      { _id: orderId },
+      { status: "visa Paied" }
+    );
     return;
   }
-  await orderModel.findByIdAndUpdate(orderId, {
-    status: "failed to pay",
-  });
+  await orderModel.findOneAndUpdate(
+    { _id: orderId },
+    { status: "failed to pay" }
+  );
   return;
 });
