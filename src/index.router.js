@@ -47,8 +47,6 @@ const bootsratp = (app, express) => {
     }
     express.json()(req, res, next);
   });
-  app.use(express.json());
-
   app.use("/auth", authRouter);
   app.use("/user", userRouter);
   app.use("/category", categoryRouter);
