@@ -21,9 +21,5 @@ categorySchema.virtual("subCategory", {
   foreignField: "categoryId", // subCategory model
 });
 
-categorySchema.pre("findByIdAndDelete", async function () {
-  await subCategoryModel.deleteMany({ categoryId: this._id });
-});
-
 const categoryModel = model("Category", categorySchema);
 export default categoryModel;

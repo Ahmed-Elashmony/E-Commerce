@@ -9,6 +9,7 @@ export const SignUP = joi
     phone: joi.string().empty(""),
     gender: joi.string().valid("male", "female").required(),
     age: joi.number().integer().min(18).max(60).required(),
+    role: joi.string().valid("user", "admin"),
   })
   .required();
 
