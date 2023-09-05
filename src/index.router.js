@@ -1,6 +1,5 @@
 import connectDB from "../DB/connection.js";
 import authRouter from "./modules/auth/auth.router.js";
-import userRouter from "./modules/user/user.router.js";
 import categoryRouter from "./modules/category/category.router.js";
 import subCategoryRouter from "./modules/subCategory/subCategory.router.js";
 import brandRouter from "./modules/brand/brand.router.js";
@@ -29,7 +28,6 @@ const bootsratp = (app, express) => {
     express.json()(req, res, next);
   });
   app.use("/auth", authRouter);
-  app.use("/user", userRouter);
   app.use("/category", categoryRouter);
   app.use("/subCategory", subCategoryRouter);
   app.use("/brand", brandRouter);
