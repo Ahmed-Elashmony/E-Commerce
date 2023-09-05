@@ -48,7 +48,7 @@ export const SignUP = asyncHandler(async (req, res, next) => {
     html: SignUpTemp(link),
   });
   // send response
-  return !isSent
+  return isSent
     ? res.status(200).json({ message: "Done", user })
     : res.json({ message: "something went wrong", isSent });
 });
