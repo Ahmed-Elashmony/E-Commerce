@@ -8,15 +8,6 @@ export const createCart = asyncHandler(async (req, res, next) => {
   if (!checkProduct) {
     return next(new Error("Product not found"), { cause: 404 });
   }
-  //   check quantity
-  // if (checkProduct.availableItems < req.body.quantity) {
-  //   return next(
-  //     new Error(
-  //       `Sorry Only ${checkProduct.availableItems} items left on the stock`
-  //     ),
-  //     { cause: 400 }
-  //   );
-  // }
   if (!checkProduct.inStock(req.body.quantity)) {
     return next(
       new Error(
@@ -25,7 +16,7 @@ export const createCart = asyncHandler(async (req, res, next) => {
       { cause: 400 }
     );
   }
-  // check the product existence in cart ==> TODO
+  // check the product existence in cart
   const isProductInCart = await cartModel.findOne({
     user: req.user.id,
     "product.productId": req.body.productId,

@@ -83,15 +83,6 @@ export const allProduct = asyncHandler(async (req, res, next) => {
     });
     return res.json({ message: "Done", product });
   }
-  //   search
-  // const { keyword } = req.query;
-  // const product = await ProductModel.find({
-  //   $or: [
-  //     { name: { $regex: keyword, $options: "i" } },
-  //     { description: { $regex: keyword, $options: "i" } },
-  //   ],
-  // });
-
   const product = await ProductModel.find({ ...req.query })
     .paginate(req.query.page)
     .selection(req.query.fileds)

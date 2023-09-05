@@ -98,7 +98,6 @@ export const LogIn = asyncHandler(async (req, res, next) => {
     agent: req.headers["user-agent"],
   });
   // online
-  // await userModel.updateOne({ email: checkEmail.email }, { isOnline: true });
   checkEmail.isOnline = true;
   await checkEmail.save();
   // response

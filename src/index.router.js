@@ -19,26 +19,6 @@ const bootsratp = (app, express) => {
     app.use(morgan("common"));
   }
 
-  // CORS
-  // // npm Cors not allow for privateNetwork and confirm email
-  // const whitelist = ["http://localhost:5500"];
-  // app.use((req, res, next) => {
-  //   // activate account
-  //   if (req.originalUrl.includes("/auth/confirmEmail")) {
-  //     res.setHeader("Acess-Control-Allow_Origin", "*");
-  //     res.setHeader("Acess-Control-Allow_Methods", "GET");
-  //     return next();
-  //   }
-  //   if (!whitelist.includes(req.header("origin"))) {
-  //     return next(new Error("Blocked By CORS!"));
-  //   }
-  //   res.setHeader("Acess-Control-Allow_Origin", "*");
-  //   res.setHeader("Acess-Control-Allow_Headers", "*");
-  //   res.setHeader("Acess-Control-Allow_Methods", "*");
-  //   res.setHeader("Acess-Control-Allow_؛Private_Network", "true");
-  //   return next();
-  // });
-
   app.use(cors());
 
   // global middleware

@@ -8,8 +8,6 @@ export const clearCart = async (userId) => {
 
 // update stock
 export const updateStock = async (products, placeOrder) => {
-  //  place order is Boolean
-  // t is place f is cancel
   if (placeOrder) {
     for (const product of products) {
       await ProductModel.findByIdAndUpdate(product.productId, {
